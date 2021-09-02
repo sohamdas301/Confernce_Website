@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/form.css" />
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <title>Add Committee</title>
+  </head>
+  <body>
+    <section id="form">
+      <form
+        action="/committeeform"
+        class="form1"
+        enctype="multipart/form-data"
+        method="post"
+      >
+      <div class="style1">
+        <h3>Read toolkit for more details</h3>
+          <ul>
+            <li>Note:  </li>
+            <li>Please enter the information exactly the way you want to display on website</li>
+            <li>To add same type of input just click on corresponding add button</li>
+            <li>To edit some input click on delete last button and start deleting fromlast till the one you want to delete</li>
+            <li>To edit some input replace the fetched input with your desired input</li>
+            <li></li>
+          </ul>
+        <label for="bigheading">Conference Title:</label>
+        <input type="text" name="bigheading" value="<%= head %>" readonly/>
+      </div>
+        <div class="chiefpatron style3">
+          <div class="form7 partchpat1">
+            <label for="chpart">Name:</label>
+            <div data-tip='Enter the name of the person in the order that you want to be displayed.  Enter in jpg/jpeg/png fotmat. File size should be less than 1 MB'><input type='text' name='chpat' required /></div>
+            <label for="ch_img" class="image"
+              >Photos of commitee:
+            </label>
+            <div data-tip='Enter the corresponding photo'><input type='file' name='ch_img' id='ch_img' multiple required/></div>
+            <button class="delete-sponsor btn" onclick="deletechpatphotos()">
+              Delete Last Chief patron
+            </button>
+            <button class="add-sponsor btn" onclick="addchpatphotos()">
+              Add New Chief patron
+            </button>
+          </div>
+        </div>
+        <div class="patrons style2">
+          <div class="form8 partpat1">
+            <label for="pat">Name:</label>
+            <div data-tip='Enter the name of the person in the order that you want to be displayed.  Enter in jpg/jpeg/png fotmat. File size should be less than 1 MB'><input type='text' name='pat' required /></div>
+            <label for="pat_img" class="image"
+              >Photos of commitee:
+            </label>
+            <div data-tip='Enter the corresponding photo'><input type='file' name='pat_img' id='pat_img' multiple required/></div>
+            <button class="delete-sponsor btn" onclick="deletepatphotos()">
+              Delete Last Patron
+            </button>
+            <button class="add-sponsor btn" onclick="addpatphotos()">
+              Add New Patron
+            </button>
+          </div>
+        </div>
+        <div class="internatad style2">
+          <div class="form9 internatad1">
+            <label for="internat">Name:</label>
+            <div data-tip='Enter the name of the person in the order that you want to be displayed. Enter in jpg/jpeg/png fotmat. File size should be less than 1 MB '><input type='text' name='internat' required /></div>
+            <label for="internat_img" class="image"
+              >Photos of commitee:
+            </label>
+            <div data-tip='Enter the corresponding photo'><input type='file' name='internat_img' id='internat_img' multiple required/></div>
+            <button class="delete-sponsor btn" onclick="deleteinternatimgphotos()">
+              Delete Last International advisory
+            </button>
+            <button class="add-sponsor btn" onclick="addinternatimgphotos()">
+              Add New International advisory
+            </button>
+          </div>
+        </div>
+        <div class="naadcom style2">
+            <div class="form10 naadcom1">
+              <label for="naadcom">Name:</label>
+              <div data-tip='Enter the name of the person in the order that you want to be displayed. Enter in jpg/jpeg/png fotmat. File size should be less than 1 MB '><input type='text' name='naadcom' required /></div>
+              <label for="naadcom_img" class="image"
+                >Photos of commitee:
+              </label>
+              <div data-tip='Enter the corresponding photo'><input type='file' name='naadcom_img' id='naadcom_img' multiple required/></div>
+              <button class="delete-sponsor btn" onclick="deletenaadcomimgphotos()">
+                Delete Last National Advisory Committee
+              </button>
+              <button class="add-sponsor btn" onclick="addnaadcomimgphotos()">
+                Add New National Advisory Committee
+              </button>
+            </div>
+          </div>
+          <div class="gencha style2">
+            <div class="form11 gencha1">
+              <label for="gencha">Name:</label>
+              <div data-tip='Enter the name of the person in the order that you want to be displayed. Enter in jpg/jpeg/png fotmat. File size should be less than 1 MB '><input type='text' name='gencha' required /></div>
+              <label for="gencha_img" class="image"
+                >Photos of commitee:
+              </label>
+              <div data-tip='Enter the corresponding photo'><input type='file' name='gencha_img' id='gencha_img' multiple required/></div>
+
+              <button class="delete-sponsor btn" onclick="deletegenchaimgphotos()">
+                Delete General Chair
+              </button>
+              <button class="add-sponsor btn" onclick="addgenchaimgphotos()">
+                Add General Chair
+              </button>
+            </div>
+          </div>
+          <div class="gencochair style2">
+            <div class="form12 gencochair1">
+              <label for="gencochair">Name:</label>
+              <div data-tip='Enter the name of the person in the order that you want to be displayed. Enter in jpg/jpeg/png fotmat. File size should be less than 1 MB '><input type='text' name='gencochair' required/></div>
+              <label for="gencochair_img" class="image"
+                >Photos of commitee:
+              </label>
+              <div data-tip='Enter the corresponding photo'><input type='file' name='gencochair_img' id='gencochair_img' multiple required /></div>
+              <button class="delete-sponsor btn" onclick="deletegencochairimgphotos()">
+                Delete General Co Chair
+              </button>
+              <button class="add-sponsor btn" onclick="addgencochairimgphotos()">
+                Add General Co Chair
+              </button>
+            </div>
+          </div>
+          <div class="conchair style2">
+            <div class="form13 conchair1">
+              <label for="conchair">Name:</label>
+              <div data-tip='Enter the name of the person in the order that you want to be displayed. Enter in jpg/jpeg/png fotmat. File size should be less than 1 MB '><input type='text' name='conchair' required /></div>
+              <label for="conchair_img" class="image"
+                >Photos of commitee:
+              </label>
+              <div data-tip='Enter the corresponding photo'><input type='file' name='conchair_img' id='conchair_img' multiple required/></div>
+              <button class="delete-sponsor btn" onclick="deleteconchairimgphotos()">
+                Delete Last Conference Chair
+              </button>
+              <button class="add-sponsor btn" onclick="addconchairimgphotos()">
+                Add New Conference Chair
+              </button>
+            </div>
+          </div>
+          <div class="ficha style2">
+            <div class="form14 ficha1">
+              <label for="ficha">Name:</label>
+              <div data-tip='Enter the name of the person in the order that you want to be displayed. Enter in jpg/jpeg/png fotmat. File size should be less than 1 MB '><input type='text' name='ficha' required /></div>
+              <label for="ficha_img" class="image"
+                >Photos of commitee:
+              </label>
+              <div data-tip='Enter the corresponding photo'><input type='file' name='ficha_img' id='ficha_img' multiple required/></div>
+              <button class="delete-sponsor btn" onclick="deletefichaimgphotos()">
+                Delete Last Finance Chair
+              </button>
+              <button class="add-sponsor btn" onclick="addfichaimgphotos()">
+                Add New Finance Chair
+              </button>
+            </div>
+          </div>
+          <div class="teproch style2">
+            <div class="form15 teproch1">
+              <label for="teproch">Name:</label>
+              <div data-tip='Enter the name of the person in the order that you want to be displayed. Enter in jpg/jpeg/png fotmat. File size should be less than 1 MB '><input type='text' name='teproch' required/></div>
+              <label for="teproch_img" class="image"
+                >Photos of commitee:
+              </label>
+              <div data-tip='Enter the corresponding photo'><input type='file' name='teproch_img' id='teproch_img' multiple required /></div>
+              <button class="delete-sponsor btn" onclick="deleteteprochimgphotos()">
+                Delete Last Tech. Program Chair
+              </button>
+              <button class="add-sponsor btn" onclick="addteprochimgphotos()">
+                Add New Tech. Program Chair
+              </button>
+            </div>
+          </div>
+          <div class="orgch style2">
+            <div class="form16 orgch1">
+              <label for="orgch">Name:</label>
+              <div data-tip='Enter the name of the person in the order that you want to be displayed. Enter in jpg/jpeg/png fotmat. File size should be less than 1 MB '><input type='text' name='orgch' required /></div>
+              <label for="orgch_img" class="image"
+                >Photos of commitee:
+              </label>
+              <div data-tip='Enter the corresponding photo'><input type='file' name='orgch_img' id='orgch_img' multiple required/></div>
+              <button class="delete-sponsor btn" onclick="deleteorgchimgphotos()">
+                Delete Last Organising Chair
+              </button>
+              <button class="add-sponsor btn" onclick="addorgchimgphotos()">
+                Add New Organising Chair
+              </button>
+            </div>
+          </div>
+          <div class="pubch style2">
+            <div class="form17 pubch1">
+              <label for="pubch">Name:</label>
+              <div data-tip='Enter the name of the person in the order that you want to be displayed. Enter in jpg/jpeg/png fotmat. File size should be less than 1 MB '><input type='text' name='pubch' required/></div>
+              <label for="pubch_img" class="image"
+                >Photos of commitee:
+              </label>
+              <div data-tip='Enter the corresponding photo'><input type='file' name='pubch_img' id='pubch_img' multiple required /></div>
+              <button class="delete-sponsor btn" onclick="deletepubchimgphotos()">
+                Delete Last Publication Chair
+              </button>
+              <button class="add-sponsor btn" onclick="addpubchimgphotos()">
+                Add New Publication Chair
+              </button>
+            </div>
+          </div>
+          <div class="publich style2">
+            <div class="form18 publich1">
+              <label for="publich">Name:</label>
+              <div data-tip='Enter the name of the person in the order that you want to be displayed. Enter in jpg/jpeg/png fotmat. File size should be less than 1 MB '><input type='text' name='publich' required/></div>
+              <label for="publich_img" class="image"
+                >Photos of commitee:
+              </label>
+              <div data-tip='Enter the corresponding photo'><input type='file' name='publich_img' id='publich_img' multiple required/></div>
+              <button class="delete-sponsor btn" onclick="deletepublichimgphotos()">
+                Delete Last Publicity Chair
+              </button>
+              <button class="add-sponsor btn" onclick="addpublichimgphotos()">
+                Add New Publicity Chair
+              </button>
+            </div>
+          </div>
+          <div class="sponch style2">
+            <div class="form19 sponch1">
+              <label for="sponch">Name:</label>
+              <div data-tip='Enter the name of the person in the order that you want to be displayed. Enter in jpg/jpeg/png fotmat. File size should be less than 1 MB '><input type='text' name='sponch' required/></div>
+              <label for="sponch_img" class="image"
+                >Photos of commitee:
+              </label>
+              <div data-tip='Enter the corresponding photo '><input type='file' name='sponch_img' id='sponch_img' multiple required/></div>
+              <button class="delete-sponsor btn" onclick="deletesponchimgphotos()">
+                Delete Last Sponsorship Chair
+              </button>
+              <button class="add-sponsor btn" onclick="addsponchimgphotos()">
+                Add New Sponsorship Chair
+              </button>
+            </div>
+          </div>
+          <div class="buttons">
+            <button type="submit" class="btn">Submit</button>
+            <button type="reset" class="btn">Reset</button>
+          </div>
+        </div>
+      </form>
+    </section>
+    <script src="/js/form.js"></script>
+  </body>
+</html>

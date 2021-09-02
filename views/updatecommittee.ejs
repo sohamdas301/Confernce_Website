@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta http-equiv='X-UA-Compatible' content='IE=edge' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <link rel='stylesheet' href='/css/form.css' />
+    <link rel='icon' type='image/png' href='https://vesit.ves.ac.in/logo.png' />
+    <script
+      src='https://code.jquery.com/jquery-3.2.1.slim.min.js'
+      integrity='sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN'
+      crossorigin='anonymous'
+    ></script>
+    <title>Update Committee</title>
+  </head>
+  <body>
+    <section id='form'>
+      <form action='/updatecommitteeform' class='form1' enctype='multipart/form-data' method='post'>
+        <div class='style1'>
+          <h3>Read toolkit for more details</h3>
+          <ul>
+            <li>Note:  </li>
+            <li>Please enter the information exactly the way you want to display on website</li>
+            <li>To add same type of input just click on corresponding add button</li>
+            <li>To edit some input click on delete last button and start deleting fromlast till the one you want to delete</li>
+            <li>To edit some input replace the fetched input with your desired input</li>
+            <li></li>
+          </ul>
+          <label for='bigheading'>Conference Title:</label>
+          <input type='text' name='bigheading' value='<%= title %>' readonly/>
+        </div>
+        <div class='chiefpatron style1'>
+          <% for(var i=0;i<chpat.length;i++){  %>
+            <div class='form7 partchpat<%= (i+1) %>'>
+              <input type='hidden' name='imgcount1' value='<%= i %>'>
+              <label for='chpart'>Chief Patron Name:</label>
+              <div data-tip='Enter the name of the person in the order that you want to be displayed. '><input type='text' name='chpat' value='<%= chpat[i].name %>' /></div>
+              
+              <label for='ch_img' class='image'
+                >Corresponding photo:
+              </label>
+                        
+
+              <img
+                
+                class='card-img-top'
+                src='data:image/<%=chpat[i].img.contentType%>;base64,
+                <%=chpat[i].img.data.toString('base64')%>'
+                alt='Card image cap'
+              />
+              
+            </div>
+            <% } %>
+            <input type='hidden' name='chpatimgcount' value='<%= chpat.length %>'>
+            <button class='delete-sponsor btn' onclick='deletechpatphotos()'>
+              Delete Last Chief patron
+            </button>
+            <button class='add-sponsor btn' onclick='addchpatphotos()'>
+              Add New Chief patron
+            </button>
+          </div>
+          <div class='patrons style2'>
+            <% for(var i=0;i<pat.length;i++){  %>
+            <div class='form8 partpat<%= (i+1) %>'>
+              <input type='hidden' name='imgcount2' value='<%= i %>'>
+              <label for='pat'>Patron Name:</label>
+              <div data-tip='Enter the name of the person in the order that you want to be displayed. '><input type='text' name='pat' value='<%= pat[i].name %>' /></div>
+              
+              <label for='pat_img' class='image'
+                >Corresponding Photo:
+              </label>
+                        
+
+              <img
+                
+                class='card-img-top'
+                src='data:image/<%=pat[i].img.contentType%>;base64,
+                <%=pat[i].img.data.toString('base64')%>'
+                alt='Card image cap'
+              />
+              
+            </div>
+            <% } %>
+            <input type='hidden' name='patimgcount' value='<%= pat.length %>'>
+            <button class='delete-sponsor btn' onclick='deletepatphotos()'>
+              Delete Last Patron
+            </button>
+            <button class='add-sponsor btn' onclick='addpatphotos()'>
+              Add New Patron
+            </button>
+          </div>
+          <div class='internatad style1'>
+            <% for(var i=0;i<internatad.length;i++){  %>
+            <div class='form9 internatad<%= (i+1) %>'>
+              <input type='hidden' name='imgcount3' value='<%= i %>'>
+              <label for='internat'>International Advisory Committee Member Name:</label>
+              <div data-tip='Enter the name of the person in the order that you want to be displayed. '><input type='text' name='internat' value='<%= internatad[i].name %>' /></div>
+              
+              <label for='internat_img' class='image'
+                >Corresponding Photo:
+              </label>
+                        
+
+              <img
+                
+              class='card-img-top'
+              src='data:image/<%=internatad[i].img.contentType%>;base64,
+              <%=internatad[i].img.data.toString('base64')%>'
+              alt='Card image cap'
+            />
+             
+            </div>
+            <% } %>
+            <input type='hidden' name='internatadimgcount' value='<%= internatad.length %>'>
+            <button class='delete-sponsor btn' onclick='deleteinternatimgphotos()'>
+              Delete Last International Advisory Committee Member
+            </button>
+            <button class='add-sponsor btn' onclick='addinternatimgphotos()'>
+              Add New International Advisory Committee Member
+            </button>
+          </div>
+          <div class='naadcom style2'>
+            <% for(var i=0;i<naadcom.length;i++){  %>
+              <div class='form10 naadcom<%= (i+1) %>'>
+                <input type='hidden' name='imgcount4' value='<%= i %>'>
+                <label for='naadcom'>National Advisory Committee Member Name:</label>
+                <div data-tip='Enter the name of the person in the order that you want to be displayed. '><input type='text' name='naadcom' value='<%= naadcom[i].name %>' /></div>
+                
+                <label for='naadcom_img' class='image'
+                  >Corresponding Photo:
+                </label>
+                          
+
+                <img
+                
+                class='card-img-top'
+                src='data:image/<%=naadcom[i].img.contentType%>;base64,
+                <%=naadcom[i].img.data.toString('base64')%>'
+                alt='Card image cap'
+              />
+                
+              </div>
+              <% } %>
+              <input type='hidden' name='naadcomimgcount' value='<%= naadcom.length %>'>
+              <button class='delete-sponsor btn' onclick='deletenaadcomimgphotos()'>
+                Delete Last National Advisory Committee Member
+              </button>
+              <button class='add-sponsor btn' onclick='addnaadcomimgphotos()'>
+                Add New National Advisory Committee Member
+              </button>
+            </div>
+            <div class='gencha style1'>
+              <% for(var i=0;i<gencha.length;i++){  %>
+              <div class='form11 gencha<%= (i+1) %>'>
+                <input type='hidden' name='imgcount5' value='<%= i %>'>
+                <label for='gencha'>General Chair Name:</label>
+                <div data-tip='Enter the name of the person in the order that you want to be displayed. '><input type='text' name='gencha' value='<%= gencha[i].name %>' /></div>
+                
+                <label for='gencha_img' class='image'
+                  >Corresponding Photo:
+                </label>
+                          
+                <img
+                
+                class='card-img-top'
+                src='data:image/<%=gencha[i].img.contentType%>;base64,
+                <%=gencha[i].img.data.toString('base64')%>'
+                alt='Card image cap'
+              />
+                
+              </div>
+              <% } %>
+              <input type='hidden' name='genchaimgcount' value='<%= gencha.length %>'>
+              <button class='delete-sponsor btn' onclick='deletegenchaimgphotos()'>
+                Delete General Chair
+              </button>
+              <button class='add-sponsor btn' onclick='addgenchaimgphotos()'>
+                Add General Chair
+              </button>
+            </div>
+            <div class='gencochair style2'>
+              <% for(var i=0;i<gencochair.length;i++){  %>
+              <div class='form12 gencochair<%= (i+1) %>'>
+                <input type='hidden' name='imgcount6' value='<%= i %>'>
+                <label for='gencochair'>General Co Chair Name:</label>
+                <div data-tip='Enter the name of the person in the order that you want to be displayed. '><input type='text' name='gencochair' value='<%= gencochair[i].name %>' /></div>
+                
+                <label for='gencochair_img' class='image'
+                  >Corresponding Photo:
+                </label>
+  
+
+                <img
+                
+                class='card-img-top'
+                src='data:image/<%=gencochair[i].img.contentType%>;base64,
+                <%=gencochair[i].img.data.toString('base64')%>'
+                alt='Card image cap'
+              />
+                
+              </div>
+              <% } %>
+              <input type='hidden' name='gencochairimgcount' value='<%= gencochair.length %>'>
+              <button class='delete-sponsor btn' onclick='deletegencochairimgphotos()'>
+                Delete General Co Chair
+              </button>
+              <button class='add-sponsor btn' onclick='addgencochairimgphotos()'>
+                Add General Co Chair
+              </button>
+            </div>
+            <div class='conchair style1'>
+              <% for(var i=0;i<conchair.length;i++){  %>
+              <div class='form13 conchair<%= (i+1) %>'>
+                <input type='hidden' name='imgcount7' value='<%= i %>'>
+                <label for='conchair'>Conference Chair Name:</label>
+                <div data-tip='Enter the name of the person in the order that you want to be displayed. '><input type='text' name='conchair' value='<%= conchair[i].name %>' /></div>
+                
+                <label for='conchair_img' class='image'
+                  >Corresponding Photo:
+                </label>
+  <div data-tip='Enter the corresponding photo'><input type='file' name='conchair_img' id='conchair_img' multiple /></div>
+
+                <img
+                
+                class='card-img-top'
+                src='data:image/<%=conchair[i].img.contentType%>;base64,
+                <%=conchair[i].img.data.toString('base64')%>'
+                alt='Card image cap'
+              />
+                
+              </div>
+              <% } %>
+              <input type='hidden' name='conchairimgcount' value='<%= conchair.length %>'>
+              <button class='delete-sponsor btn' onclick='deleteconchairimgphotos()'>
+                Delete Last Conference Chair
+              </button>
+              <button class='add-sponsor btn' onclick='addconchairimgphotos()'>
+                Add New Conference Chair
+              </button>
+            </div>
+            <div class='ficha style2'>
+              <% for(var i=0;i<ficha.length;i++){  %>
+              <div class='form14 ficha<%= (i+1) %>'>
+                <input type='hidden' name='imgcount8' value='<%= i %>'>
+                <label for='ficha'>Finance Chair Name:</label>
+                <div data-tip='Enter the name of the person in the order that you want to be displayed. '><input type='text' name='ficha' value='<%= ficha[i].name %>' /></div>
+                
+                <label for='ficha_img' class='image'
+                  >Corresponding Photo:
+                </label>
+                          
+
+                <img
+                
+                class='card-img-top'
+                src='data:image/<%=ficha[i].img.contentType%>;base64,
+                <%=ficha[i].img.data.toString('base64')%>'
+                alt='Card image cap'
+              />
+               
+              </div>
+              <% } %>
+              <input type='hidden' name='fichaimgcount' value='<%= ficha.length %>'>
+              <button class='delete-sponsor btn' onclick='deletefichaimgphotos()'>
+                Delete Last Finance Chair
+              </button>
+              <button class='add-sponsor btn' onclick='addfichaimgphotos()'>
+                Add New Finance Chair
+              </button>
+            </div>
+            <div class='teproch style1'>
+              <% for(var i=0;i<teproch.length;i++){  %>
+              <div class='form15 teproch<%= (i+1) %>'>
+                <input type='hidden' name='imgcount9' value='<%= i %>'>
+                <label for='teproch'>Tech. Program Chair Name:</label>
+                <div data-tip='Enter the name of the person in the order that you want to be displayed. '><input type='text' name='teproch' value='<%= teproch[i].name %>' /></div>
+                
+                <label for='teproch_img' class='image'
+                  >Corresponding Photo:
+                </label>
+                          
+
+                <img
+                
+                class='card-img-top'
+                src='data:image/<%=teproch[i].img.contentType%>;base64,
+                <%=teproch[i].img.data.toString('base64')%>'
+                alt='Card image cap'
+              />
+                
+              </div>
+              <% } %>
+              <input type='hidden' name='teprochimgcount' value='<%= teproch.length %>'>
+              <button class='delete-sponsor btn' onclick='deleteteprochimgphotos()'>
+                Delete Last Tech. Program Chair
+              </button>
+              <button class='add-sponsor btn' onclick='addteprochimgphotos()'>
+                Add New Tech. Program Chair
+              </button>
+            </div>
+            <div class='orgch style2'>
+              <% for(var i=0;i<orgch.length;i++){  %>
+              <div class='form16 orgch<%= (i+1) %>'>
+                <input type='hidden' name='imgcount10' value='<%= i %>'>
+                <label for='orgch'>Organizing Chair Name:</label>
+                <div data-tip='Enter the name of the person in the order that you want to be displayed. '><input type='text' name='orgch' value='<%= orgch[i].name %>' /></div>
+                
+                <label for='orgch_img' class='image'
+                  >Corresponding Photo:
+                </label>
+                          
+
+                <img
+                
+                class='card-img-top'
+                src='data:image/<%=orgch[i].img.contentType%>;base64,
+                <%=orgch[i].img.data.toString('base64')%>'
+                alt='Card image cap'
+              />
+                
+              </div>
+              <% } %>
+              <input type='hidden' name='orgchimgcount' value='<%= orgch.length %>'>
+              <button class='delete-sponsor btn' onclick='deleteorgchimgphotos()'>
+                Delete Last Organising Chair
+              </button>
+              <button class='add-sponsor btn' onclick='addorgchimgphotos()'>
+                Add New Organising Chair
+              </button>
+            </div>
+            <div class='pubch style1'>
+              <% for(var i=0;i<pubch.length;i++){  %>
+              <div class='form17 pubch<%= (i+1) %>'>
+                <label for='pubch'>Publication Chair Name:</label>
+                <div data-tip='Enter the name of the person in the order that you want to be displayed. '><input type='text' name='pubch' value='<%= pubch[i].name %>' /></div>
+                <input type='hidden' name='imgcount11' value='<%= i %>'>
+                
+                <label for='pubch_img' class='image'
+                  >Corresponding Photo:
+                </label>
+                         
+
+                <img
+                
+                class='card-img-top'
+                src='data:image/<%=pubch[i].img.contentType%>;base64,
+                <%=pubch[i].img.data.toString('base64')%>'
+                alt='Card image cap'
+              />
+                
+              </div>
+              <% } %>
+              <input type='hidden' name='pubchimgcount' value='<%= pubch.length %>'>
+              <button class='delete-sponsor btn' onclick='deletepubchimgphotos()'>
+                Delete Last Publication Chair
+              </button>
+              <button class='add-sponsor btn' onclick='addpubchimgphotos()'>
+                Add New Publication Chair
+              </button>
+            </div>
+            <div class='publich style2'>
+              <% for(var i=0;i<publich.length;i++){  %>
+              <div class='form18 publich<%= (i+1) %>'>
+                <label for='publich'>Publicity Chair Name:</label>
+                <div data-tip='Enter the name of the person in the order that you want to be displayed. '><input type='text' name='publich' value='<%= publich[i].name %>' /></div>
+                <input type='hidden' name='imgcount12' value='<%= i %>'>
+                
+                <label for='publich_img' class='image'
+                  >Corresponding Photo:
+                </label>
+   <div data-tip='Enter the corresponding photo'><input type='file' name='publich_img' id='publich_img' multiple /></div>
+
+                <img
+                
+                class='card-img-top'
+                src='data:image/<%=publich[i].img.contentType%>;base64,
+                <%=publich[i].img.data.toString('base64')%>'
+                alt='Card image cap'
+              />
+                
+              </div>
+              <% } %>
+              <input type='hidden' name='publichimgcount' value='<%= publich.length %>'>
+              <button class='delete-sponsor btn' onclick='deletepublichimgphotos()'>
+                Delete Last Publicity Chair
+              </button>
+              <button class='add-sponsor btn' onclick='addpublichimgphotos()'>
+                Add New Publicity Chair
+              </button>
+            </div>
+            <div class='sponch style1'>
+              <% for(var i=0;i<sponch.length;i++){  %>
+              <div class='form19 sponch<%= (i+1) %>'>
+                <label for='sponch'>Sponsorship Chair Name:</label>
+           <div data-tip='Enter the name of the person in the order that you want to be displayed. '><input type='text' name='sponch' value='<%= sponch[i].name %>' /></div>
+
+                <input type='hidden' name='imgcount13' value='<%= i %>'>
+                
+                <label for='sponch_img' class='image'
+                  >Corresponding Photo:
+                </label>
+
+
+                <img
+                
+                class='card-img-top'
+                src='data:image/<%=sponch[i].img.contentType%>;base64,
+                <%=sponch[i].img.data.toString('base64')%>'
+                alt='Card image cap'
+              />
+                
+              </div>
+              <% } %>
+              <input type='hidden' name='sponchimgcount' value='<%= sponch.length %>'>
+              <button class='delete-sponsor btn' onclick='deletesponchimgphotos()'>
+                Delete Last Sponsorship Chair
+              </button>
+              <button class='add-sponsor btn' onclick='addsponchimgphotos()'>
+                Add New Sponsorship Chair
+              </button>
+            </div>
+        <div class='buttons'>
+          <button type='submit' class='btn'>Submit</button>
+          <button type='reset' class='btn'>Reset</button>
+        </div>
+      </form>
+    </section>
+    <script src='/js/updateform.js'></script>
+  </body>
+</html>

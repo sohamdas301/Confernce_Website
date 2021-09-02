@@ -1,0 +1,13 @@
+.navbar-collapse{
+    width: auto;
+    height: 75px;
+    background-color: #fff;
+    padding-right: 100px;
+    border-radius: 25px;
+    box-shadow: #8f8f8f;
+    margin-left: 50px;
+  }
+
+  .navbar-toggler-icon{
+    background-color: #fff;
+  }

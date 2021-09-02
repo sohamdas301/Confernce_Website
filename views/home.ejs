@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vesit Conference</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat|Ubuntu"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    
+    <link rel="icon" type="image/png" href="https://vesit.ves.ac.in/logo.png" />
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
+    <!-- Font Awesome -->
+    <script
+      defer
+      src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"
+    ></script>
+
+    <!-- Bootstrap Scripts -->
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Custom CSS Scripts -->
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="/css/canvas.css">
+  </head>
+
+  <body>
+
+    <!-- CANVAS -->
+    <canvas id="canvas1"> </canvas>
+    <script src="/js/canvas.js"></script>
+
+    <div class="hero">
+      <%- include('partials/navbar') %>
+      <div class="left">
+        <div class="main-part">
+          <h1 class="big-heading"><%= con.title %></h1>
+          <p><%= con.fromdate %> to <%= con.todate %></p>
+          <p>Venue: <%= con.venue %></p>
+          <a
+            class="btn btn-light btn-lg download-button but3" href="#schedule"
+          >
+            Attend    <i class="fas fa-arrow-right"></i>
+        </a>
+        </div>
+      </div>
+      <div class="right">
+        <img class="fit-img" src="/images/reg.png" alt="robo-hero image" />
+      </div>
+    </div>
+
+  <!-- announcements -->
+  <% if(con.announce) { %>
+      
+    <section id="announcements">
+      <div class="acontainer">
+        <div class="running" style="overflow: hidden;">
+          <p>
+            <% for(let i=0;i<con.announce.length;i++){%>
+          <a name="announce" href="#"><i class="fa fa-caret-right"></i> <%= con.announce[i]%>        </a>
+              <%}%>
+          </p>
+        </div>
+      </div>
+    </section>
+    <%}%>
+  <!-- announcements -->
+
+
+    <!-- Timer -->
+    <section id="timer">
+      <div class="timer">
+        <div class="container_fluid timer_head">
+          <h2 style="color: #ffffff;">
+            Count Every Second till the
+            <span style="color: #f8c100">Conference</span>
+          </h2>
+        </div>
+
+        <div class="timer_data">
+          <div class="circle-1" style="border: 5px solid blue">
+            <p id="timer_day"></p>
+          </div>
+          <div class="circle-1" style="border: 5px solid red">
+            <p id="timer_hrs"></p>
+          </div>
+          <div class="circle-1" style="border: 5px solid green">
+            <p id="timer_min"></p>
+          </div>
+          <div class="circle-1" style="border: 5px solid yellow">
+            <p id="timer_sec"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+
+    <section class="white-section" id="about">
+      <div class="containera">
+        <div class="lefta">
+          <div class="lefta-1">
+            <h3>About the conference</h3>
+            <p><%= info %>
+              <br />
+              <br />
+              <a href="/aboutconference/<%= con._id %>">Read More>></a>
+            </p>
+          </div>     
+        </div>
+        <div class="righta">
+      
+          <div class="carousel-container">
+            <div class="carousel">
+              <div class="image-one"></div>
+              <div class="image-two"></div>
+              <div class="image-three"></div>
+            </div>
+          </div>
+      
+        </div>
+      </div>
+    </section>
+
+    <!-- about end -->
+    <section id="schedule">
+      <div class="main-div">
+        <!-- <img src="webb-dark 1.png" alt="Photo"> -->
+        <div class="title">
+          <h1>Conference Schedule And Agenda</h1>
+        </div>
+
+        <div class="body-container">
+          <div class="days-count">
+            <% for(i=1;i<=diffDays;i++){ %>
+            <button class="days" id="<%= i %>">Day <%= i %></button>
+            <% } %>
+          </div>
+          <% for(let j=1;j<=diffDays;j++){ %>
+            <div class="contents" id="content<%= j %>">
+          <% for(let i=0;i<con.days.day.length;i++){ %>
+          <%  if(con.days.day[i]==j){ %>
+            <div class="card mb-3 sch">
+              <div class="row g-0">
+                  <div class="col-md-4 eg-1">
+                    <%= con.days.time[i] %>
+                  </div>
+                <div class="col-md-8 eg-2">
+                  <div class="card-body">
+                    <h3 class="card-title"><%= con.days.eventname[i] %></h3>
+                    <p class="card-text"><%= con.days.eventdesc[i] %></p>
+                    <a href="/attendee/<%= con._id %>/<%= i %>">Click for more!</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+           <% } %>
+         <% } %>
+          </div>
+        <% } %>
+        </div>
+      </div>
+    </section>
+
+    <!-- speakers -->
+
+    <section id="speakers">
+      <div class="heading-speaker">
+        <p>Speakers</p>
+      </div>
+      <div class="container-fluid">
+        <div class="row justify-content-center">
+          <% for(var i=0;i < sn.length; i++){ %>
+          <div class="col-12 col-lg-4 mb-5">
+            <div class="card colspek">
+              <div class="card-gradient">
+                <img
+                class="card-img-top rounded-circle imgspek"
+                src="data:image/<%=con.speaker[i].img.contentType%>;base64,
+                <%=con.speaker[i].img.data.toString('base64')%>"
+                alt="Card image speakers"
+              />
+              <div class="card-body">
+                <h5 class="card-title"><%= con.speaker[i].speakername %></h5>
+                <p class="card-text"><%= con.speaker[i].speakerdesc %></p>
+              </div>
+              </div>
+            </div>
+          </div>
+          <% } %>
+        </div>
+      </div>
+    </section>
+
+    <!-- sponsors -->
+
+    <section id="sponsors">
+      <div class="heading-sponsor">
+        <p>Sponsors</p>
+      </div>
+      <div class="container-fluid">
+        <div class="row justify-content-center">
+          <% for(var i=0;i < spn.length; i++){ %>
+            <div class="col-12 col-md-4 col-lg-3">
+              <div class="card colspo">
+                <img
+                  class="card-img-top imgspon"
+                  src="data:image/<%=con.sponsor[i].img.contentType%>;base64,
+                  <%=con.sponsor[i].img.data.toString('base64')%>"
+                  alt="Card image sponsors"
+                />
+                <div class="card-body">
+                  <h5 class="card-title"><%= con.sponsor[i].sponsorname %></h5>
+                </div>
+              </div>
+            </div>
+          <% } %>
+        </div>
+      </div>
+    </section>
+
+    <section id="venue">
+      <div class="venue">
+        <div class="venue_head">
+          <p>
+            <b>Venue: </b><br />
+            Hashu Advani Memorial Complex,<br />Collector’s Colony, Chembur,<br />Mumbai –
+            400 074. India.
+          </p>
+
+          <p>
+            <b>Email-Id:</b>
+            vesit@ves.ac.in
+            <br />
+            <b>Tel:</b> +912261532510
+            <br />
+            <b>Fax:</b> +912261532555
+          </p>
+        </div>
+
+        <div class="venue_map">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3771.396385310168!2d72.88768891478749!3d19.046302057854934!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c8add9569a29%3A0xb7ad04bf9a389df7!2sVivekanand+Education+Society's+Institute+Of+Technology!5e0!3m2!1sen!2sin!4v1561112090446!5m2!1sen!2sin"
+            width="100%"
+            height="350"
+            frameborder="0"
+            allowfullscreen=""
+          ></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <%- include('partials/footer') %>
+    <!-- <button type="button" id="toTop" style="position:fixed; bottom: 119px; right: 20px; z-index:10000;" class="btn btn-warning font-weight-bold"><i class="fas fa-hand-pointer"></i></button> -->
+    <script>
+      var countDownDate = new Date("<%= con.fromdate %>").getTime();
+
+      // Update the count down every 1 second
+      var x = setInterval(function () {
+        // Get today's date and time
+        var now = new Date().getTime();
+
+        // Find the distance between now and the count down date
+        var distance = countDownDate - now;
+
+        // Time calculations for days, hours, minutes and seconds
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor(
+          (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        );
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        // Output the result in an element with id="demo"
+        document.getElementById("timer_day").innerHTML = days + "  days ";
+        document.getElementById("timer_hrs").innerHTML = hours + "   hours";
+        document.getElementById("timer_min").innerHTML = minutes + "  minutes ";
+        document.getElementById("timer_sec").innerHTML = seconds + " seconds ";
+
+        // If the count down is over, write some text
+        if (distance < 0) {
+          clearInterval(x);
+          document.getElementById("demo").innerHTML = "EXPIRED";
+        }
+      }, 1000);
+      
+    </script>
+
+    <script src="/js/script.js"></script>
+  </body>
+</html>

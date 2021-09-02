@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald&family=Ubuntu:wght@700&display=swap');
+
+.para-custom{
+    font-size: 20px;
+}
+.heading{
+    color: blue;
+    font-size: 50px;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding-left: 50px;
+    padding-top: 20px;
+    padding-bottom: 5px;
+    font-family: 'Ubuntu', sans-serif;
+}
+.card-custom{
+    border-width: 2px;
+}
+.card-custom > div{
+    padding: 5px;
+    text-align: center;
+}
+.custom_button{
+    margin-bottom: 2px;
+    border-radius: 3px;
+    text-align: center;
+    width: 100%;
+    background:linear-gradient(to bottom, #5995fd,#3d73d0); 
+    color: white;
+    
+    
+}
+ol, ul {
+  padding-left: 0;
+}
+li{
+    list-style-type: none;
+}
+  
+
+body {
+  font-family: "Poppins","Montserrat","sans-serif";
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Montserrat-Bold";
+}
+
+p {
+  color: #8f8f8f;
+}
+
+.navbar-collapse{
+  width: auto;
+  height: 75px;
+  background-color: #fff;
+  padding-right: 100px;
+  border-radius: 25px;
+  box-shadow: #8f8f8f;
+  margin-left: 50px;
+}
+.event_list{
+    height: auto;
+    padding: 5%;
+    font-family:"Poppins","Montserrat","sans-serif";
+    font-weight: 600;
+}
+
+.custom-row{
+  background-color: #f1f1f1;
+  border-radius: 10px;
+}
+
+.active{
+  display: block;
+}
+.inactive{
+  display: none;
+}
+dl, ol, ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+  .custom_button:hover{
+  /* transition: 1s; */
+  background: gray;
+  color: white;
+  
+}  
+
+.easychair{
+  font-size: 25px;
+  text-align: center;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+  font-family:"Poppins","Montserrat","sans-serif";
+}
+
+.track{
+  padding: 15px; 
+  font-family: 'Oswald', sans-serif;
+  font-family: 'Ubuntu', sans-serif;
+  font-style: normal;
+  font-weight: bolder;
+  color: #1b2845;
+}
+
+.highlight{
+  background:linear-gradient(to bottom, #14171b,#090c11); 
+
+}

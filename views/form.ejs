@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/form.css" />
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <title>Add Conference</title>
+  </head>
+  <body>
+    <section id="form">
+      <form
+        action="/form"
+        class="form1"
+        enctype="multipart/form-data"
+        method="post"
+      >
+
+        <div class="style1">
+          <h3>Read toolkit for more details</h3>
+          <ul>
+            <li>Note:  </li>
+            <li>Please enter the information exactly the way you want to display on website</li>
+            <li>To add same type of input just click on corresponding add button</li>
+            <li>To edit some input click on delete last button and start deleting fromlast till the one you want to delete</li>
+            <li>To edit some input replace the fetched input with your desired input</li>
+            <li></li>
+          </ul>
+          <label for="bigheading">Conference Title:</label>
+          <div data-tip="Enter the name of the conference exactly as you want it  to be displayed "><input type="text tooltip" name="bigheading" required/></div>
+          <label for="schedule">From date:</label>
+          <div data-tip="Enter the date in the format - 'Month DD,YYYY'  "><input type="text" name="formdate" placeholder="Month DD,YYYY" required /></div>
+
+          <label for="schedule">To date:</label>
+          <div data-tip="Enter the date in the format - 'Month DD,YYYY'  "><input type="text" name="todate" placeholder="Month DD,YYYY" required /></div>
+
+          <label for="big-heading">Venue:</label>
+          <div data-tip="Enter the venue exactly as you want it  to be displayed "><input type="text" name="venue" required/></div>
+
+          <label for="big-heading">Youtube link:</label>
+          <div data-tip="Enter the valid url link of the conference if available  "><input type="text" name="Link"/></div>
+
+          <p class="infoabo">
+            <label for="big-heading">Information About Conference:</label>
+          </p>
+          <div data-tip="Enter the information of the conference and please note that the first 1000 characters would be displayed in the main page. So enter accordingly!  "><textarea name="infocon" id="" cols="80" rows="4" required></textarea></div>
+
+          <br />
+          <hr />
+        </div>
+        <div class="announceeg style2">
+          <div class="form20 partannounce1">
+          <label for="announce1">Announcement:</label>
+          <div data-tip='Enter the announcements in the order that you want to be displayed '><input type="text" name="announce" /></div>
+
+          <button class="delete-announce btn" onclick="deleteAnnounce()">
+            Delete Last Announcement
+          </button>
+          <button class="add-announce btn" onclick="addAnnounce()">
+            Add New Announcement
+          </button>
+          <hr />
+        </div>
+        </div>
+        <div class="dayeg style1">
+          <div class="form3 partday1">
+            <label for="day1">Day no:</label>
+            <div data-tip='Enter the day number in the order that you want to be displayed '><input type="number" name="day" required/></div>
+
+            <label for="timing">Time:</label>
+            <div data-tip='Enter the time in  order and format for the day number entered before '><input type="text" name="time" required/></div>
+
+            <label for="event-name1">Event Name:</label>
+            <div data-tip='Enter the name of event corresponding to the time entered before '><input type="text" name="eventname" required/></div>
+
+            <label for="event-desc1">Event Description:</label>
+            <div data-tip='Enter the description of the event and please note that the first 30 characters would be displayed in the main page. So enter accordingly!'><textarea name="eventdesc" id="" cols="80" rows="4" required></textarea></div>
+            <br>
+            <label for="plink">Paper Link:</label>
+            <div data-tip='Enter the valid google drive link of the paper presenter corresponding to the event if available or else type NA '><input type="text" name="paperlink"/></div>
+
+            <button class="delete-day btn" onclick="deleteDay()">
+              Delete Last Day and schedule
+            </button>
+            <button class="add-day btn" onclick="addDay()">
+              Add New Day and schedule
+            </button>
+            <hr />
+          </div>
+        </div>
+        <div class="speakereg style2">
+          <label for="speaker1">Speaker Photo:</label>
+          <div data-tip='Enter the photo of the speaker in the order that you want to be displayed. Enter in jpg/jpeg/png fotmat. File size should be less than 1 MB'><input type="file" name="fileToUpload" id="fileToUpload1" multiple required/></div>
+          <label for="speaker-name1">Speaker Name:</label>
+          <div data-tip='Enter the name of the corresponding speaker '><input type="text" name="speakername" required/></div>
+          <label for="speaker-desc1">Speaker Description:</label>
+          <div data-tip='Enter the description of the corresponding speaker '><input type="text" name="speakerdesc" required/></div>
+          <button class="delete-speaker btn" onclick="deleteSpeaker()">
+            Delete Last Speaker
+          </button>
+          <button class="add-speaker btn" onclick="addSpeaker()">
+            Add New Speaker
+          </button>
+          <hr />
+        </div>
+        <div class="sponsoreg style1">
+          <label for="sponsor1">Sponsor Photo:</label>
+           <div data-tip='Enter the photo of the sponsor in the order that you want to be displayed. Enter in jpg/jpeg/png fotmat. File size should be less than 1 MB'><input type="file" name="sfileToUpload" id="sfileToUpload1" multiple required/></div>
+
+
+          <label for="sponsor-name1">Sponsor Name:</label>
+          <div data-tip='Enter the name of the corresponding sponsor '><input type="text" name="sponsorname" required/>
+</div>
+
+          <button class="delete-sponsor btn" onclick="deleteSponsor()">
+            Delete Last Sponsor
+          </button>
+          <button class="add-sponsor btn" onclick="addSponsor()">
+            Add New Sponsor
+          </button>
+          <hr />
+        </div>
+        <div class="gallery_imgeg style2">
+          <div class="form6 partgallery1">
+
+            <label for="img_cap">Image Caption of Gallery:</label>
+    <div data-tip='Enter the caption of the photo of the past conference if avilable in the order that you want to be displayed.'><input type="text" name="img_cap"/></div>
+
+
+            <label for="gallery_img" class="image"
+              >Photos of conference:
+            </label>
+             <div data-tip='Enter the corresponding photo of the past conference if available in the order that you want to be displayed. Enter in jpg/jpeg/png fotmat. File size should be less than 1 MB'><input type="file" name="gallery_img" id="gallery_img" multiple/></div>
+
+
+            <button class="delete-sponsor btn" onclick="deletephotos()">
+              Delete Last Photo
+            </button>
+            <button class="add-sponsor btn" onclick="addphotos()">
+              Add New Photo
+            </button>
+          </div>
+        </div>
+          <div class="buttons">
+            <button type="submit" class="btn">Submit</button>
+            <button type="reset" class="btn">Reset</button>
+          </div>
+        </div>
+      </form>
+    </section>
+    <script src="/js/form.js"></script>
+  </body>
+</html>

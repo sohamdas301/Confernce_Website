@@ -1,0 +1,369 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width" />
+    <title>FAQ</title>
+
+    <!-- Google fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Eczar:wght@400;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- FontAwesome CDN -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
+      integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk"
+      crossorigin="anonymous"
+    />
+
+    <!-- Scripts -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Scripts end -->
+    <link rel="stylesheet" href="/css/faq.css" />
+  </head>
+  <body>
+    <!-- navbar -->
+    <div class="navbar navbar-expand-md navbar-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#"
+          ><img src="/images/navlogo-3.png" style="width: 200px"
+        /></a>
+
+        <img
+          id="mobile-cta"
+          class="mobile-menu"
+          src="/images/menu.svg"
+          alt="Open Navigation"
+        />
+
+        <nav id="nav" class="shadow-lg">
+          <img
+            id="mobile-exit"
+            class="mobile-menu-exit"
+            src="/images/exit.svg"
+            alt="Close Navigation"
+          />
+
+          <ul class="primary-nav">
+            <li><a href="/">Home</a></li>
+            <li><a href="/archive">Archive</a></li>
+            <li><a href="/about">About VESIT</a></li>
+          <li><a href="/faq">FAQs</a></li>
+          <li><a href="/contact">Contact</a></li>
+          </ul>
+
+          
+        </nav>
+      </div>
+    </div>
+
+    <!-- navbar ends -->
+
+    <!-- Jumbotron -->
+    <div id="jumbotron" class="container-fluid p-5 rounded-lg mb-4">
+      <h1 class="display-1 text-center" id="heading">
+        Frequently Asked Questions
+      </h1>
+    </div>
+
+    <nav class="faq-nav">
+      <div
+        class="nav nav-tabs justify-content-center"
+        id="nav-tab"
+        role="tablist"
+      >
+        <button
+          class="nav-link active btn-lg"
+          id="nav-genq-tab"
+          data-bs-toggle="tab"
+          data-bs-target="#nav-genq"
+          type="button"
+          role="tab"
+          aria-controls="nav-genq"
+          aria-selected="true"
+        >
+          General Questions
+        </button>
+        <button
+          class="nav-link btn-lg"
+          id="nav-attendeeq-tab"
+          data-bs-toggle="tab"
+          data-bs-target="#nav-attendeeq"
+          type="button"
+          role="tab"
+          aria-controls="nav-attendeeq"
+          aria-selected="false"
+        >
+          Attendee Questions
+        </button>
+        <button
+          class="nav-link btn-lg"
+          id="nav-presenterq-tab"
+          data-bs-toggle="tab"
+          data-bs-target="#nav-presenterq"
+          type="button"
+          role="tab"
+          aria-controls="nav-presenterq"
+          aria-selected="false"
+        >
+          Paper presenter Questions
+        </button>
+      </div>
+    </nav>
+    <div class="tab-content" id="nav-tabContent">
+      <div
+        class="tab-pane fade show active"
+        id="nav-genq"
+        role="tabpanel"
+        aria-labelledby="nav-genq-tab"
+      >
+        <!-- Accordion 1 starts here -->
+
+        <div class="accordion" id="genqaccordion">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="genqheading1">
+              <button
+                class="accordion-button"
+                type="button"
+                data-bs-toggle="collapse"
+                data-parent="genqaccordion"
+                data-bs-target="#genqcollapse1"
+                aria-expanded="true"
+                aria-controls="genqcollapse1"
+              >
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
+                vulputate diam nec dictum suscipit. Etiam ligula purus, sodales
+                non luctus vitae, feugiat a felis. Donec tempus.
+              </button>
+            </h2>
+            <div
+              id="genqcollapse1"
+              class="accordion-collapse collapse"
+              aria-labelledby="genqheading1"
+              data-bs-parent="#genqaccordion"
+            >
+              <div class="accordion-body">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Curabitur luctus magna vel condimentum semper. Aenean egestas
+                arcu vitae elit varius, non faucibus quam pharetra. Morbi mi
+                mauris, vulputate eu vulputate a, auctor vel ex. Aenean pharetra
+                dui et augue tristique posuere. Integer egestas, lacus vel
+                facilisis gravida, justo neque vestibulum nisi, sed aliquet
+                libero enim a urna. Suspendisse ac mi pretium diam aliquet
+                porttitor. Nam sit amet sem ac magna suscipit sagittis. Proin
+                porta, ante id bibendum tincidunt, justo orci vulputate nulla,
+                ac iaculis felis ante a sem. Cras tempus iaculis felis at
+                fermentum. Vivamus a luctus felis. Donec ut suscipit odio. Etiam
+                nec iaculis leo. Proin ut ornare metus.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="genqheading2">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-parent="genqaccordion"
+                data-bs-target="#genqcollapse2"
+                aria-expanded="false"
+                aria-controls="genqcollapse2"
+              >
+                Stupid Ass Question
+              </button>
+            </h2>
+            <div
+              id="genqcollapse2"
+              class="accordion-collapse collapse"
+              aria-labelledby="genqheading2"
+              data-bs-parent="#genqaccordion"
+            >
+              <div class="accordion-body">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Curabitur luctus magna vel condimentum semper. Aenean egestas
+                arcu vitae elit varius, non faucibus quam pharetra. Morbi mi
+                mauris, vulputate eu vulputate a, auctor vel ex. Aenean pharetra
+                dui et augue tristique posuere. Integer egestas, lacus vel
+                facilisis gravida, justo neque vestibulum nisi, sed aliquet
+                libero enim a urna. Suspendisse ac mi pretium diam aliquet
+                porttitor. Nam sit amet sem ac magna suscipit sagittis. Proin
+                porta, ante id bibendum tincidunt, justo orci vulputate nulla,
+                ac iaculis felis ante a sem. Cras tempus iaculis felis at
+                fermentum. Vivamus a luctus felis. Donec ut suscipit odio. Etiam
+                nec iaculis leo. Proin ut ornare metus.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="genqheading3">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-parent="genqaccordion"
+                data-bs-toggle="collapse"
+                data-bs-target="#genqcollapse3"
+                aria-expanded="false"
+                aria-controls="genqcollapse3"
+              >
+                Ye sab pooch raha hoga to mar hi jaa tu bro
+              </button>
+            </h2>
+            <div
+              id="genqcollapse3"
+              class="accordion-collapse collapse"
+              aria-labelledby="genqheading3"
+              data-bs-parent="#genqaccordion"
+            >
+              <div class="accordion-body">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Curabitur luctus magna vel condimentum semper. Aenean egestas
+                arcu vitae elit varius, non faucibus quam pharetra. Morbi mi
+                mauris, vulputate eu vulputate a, auctor vel ex. Aenean pharetra
+                dui et augue tristique posuere. Integer egestas, lacus vel
+                facilisis gravida, justo neque vestibulum nisi, sed aliquet
+                libero enim a urna. Suspendisse ac mi pretium diam aliquet
+                porttitor. Nam sit amet sem ac magna suscipit sagittis. Proin
+                porta, ante id bibendum tincidunt, justo orci vulputate nulla,
+                ac iaculis felis ante a sem. Cras tempus iaculis felis at
+                fermentum. Vivamus a luctus felis. Donec ut suscipit odio. Etiam
+                nec iaculis leo. Proin ut ornare metus.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="genqheading4">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-parent="genqaccordion"
+                data-bs-toggle="collapse"
+                data-bs-target="#genqcollapse4"
+                aria-expanded="false"
+                aria-controls="genqcollapse4"
+              >
+                Ye sab pooch raha hoga to mar hi jaa tu bro
+              </button>
+            </h2>
+            <div
+              id="genqcollapse4"
+              class="accordion-collapse collapse"
+              aria-labelledby="genqheading4"
+              data-bs-parent="#genqaccordion"
+            >
+              <div class="accordion-body">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Curabitur luctus magna vel condimentum semper. Aenean egestas
+                arcu vitae elit varius, non faucibus quam pharetra. Morbi mi
+                mauris, vulputate eu vulputate a, auctor vel ex. Aenean pharetra
+                dui et augue tristique posuere. Integer egestas, lacus vel
+                facilisis gravida, justo neque vestibulum nisi, sed aliquet
+                libero enim a urna. Suspendisse ac mi pretium diam aliquet
+                porttitor. Nam sit amet sem ac magna suscipit sagittis. Proin
+                porta, ante id bibendum tincidunt, justo orci vulputate nulla,
+                ac iaculis felis ante a sem. Cras tempus iaculis felis at
+                fermentum. Vivamus a luctus felis. Donec ut suscipit odio. Etiam
+                nec iaculis leo. Proin ut ornare metus.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="genqheading5">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-parent="genqaccordion"
+                data-bs-toggle="collapse"
+                data-bs-target="#genqcollapse5"
+                aria-expanded="false"
+                aria-controls="genqcollapse5"
+              >
+                Ye sab pooch raha hoga to mar hi jaa tu bro
+              </button>
+            </h2>
+            <div
+              id="genqcollapse5"
+              class="accordion-collapse collapse"
+              aria-labelledby="genqheading5"
+              data-bs-parent="#genqaccordion"
+            >
+              <div class="accordion-body">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Curabitur luctus magna vel condimentum semper. Aenean egestas
+                arcu vitae elit varius, non faucibus quam pharetra. Morbi mi
+                mauris, vulputate eu vulputate a, auctor vel ex. Aenean pharetra
+                dui et augue tristique posuere. Integer egestas, lacus vel
+                facilisis gravida, justo neque vestibulum nisi, sed aliquet
+                libero enim a urna. Suspendisse ac mi pretium diam aliquet
+                porttitor. Nam sit amet sem ac magna suscipit sagittis. Proin
+                porta, ante id bibendum tincidunt, justo orci vulputate nulla,
+                ac iaculis felis ante a sem. Cras tempus iaculis felis at
+                fermentum. Vivamus a luctus felis. Donec ut suscipit odio. Etiam
+                nec iaculis leo. Proin ut ornare metus.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="tab-pane fade"
+        id="nav-attendeeq"
+        role="tabpanel"
+        aria-labelledby="nav-attendeeq-tab"
+      >
+        Attendee Questions
+      </div>
+      <div
+        class="tab-pane fade"
+        id="nav-presenterq"
+        role="tabpanel"
+        aria-labelledby="nav-presenterq-tab"
+      >
+        Paper presenter Questions
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <%- include('partials/footer') %>
+    <script type="text/javascript">
+      document.write(new Date().getFullYear());
+    </script>
+    <script>
+      const mobileBtn = document.getElementById("mobile-cta");
+      nav = document.querySelector("nav");
+      mobileBtnExit = document.getElementById("mobile-exit");
+
+      mobileBtn.addEventListener("click", () => {
+        nav.classList.add("menu-btn");
+      });
+
+      mobileBtnExit.addEventListener("click", () => {
+        nav.classList.remove("menu-btn");
+      });
+    </script>
+    <!-- Footer Ends -->
+  </body>
+</html>

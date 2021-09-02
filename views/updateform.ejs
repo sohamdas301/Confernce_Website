@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/form.css" />
+    <link rel="icon" type="image/png" href="https://vesit.ves.ac.in/logo.png" />
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <title>Update Form</title>
+  </head>
+  <body>
+    <section id="form">
+      <form action="/updateform/<%= id %>" class="form1" enctype="multipart/form-data" method="post">
+        <div class="style1">
+
+          <h3>Note:  </h3>
+          <ul>
+            <li>Note:  </li>
+            <li>Please enter the information exactly the way you want to display on website</li>
+            <li>To add same type of input just click on corresponding add button</li>
+            <li>To edit some input click on delete last button and start deleting fromlast till the one you want to delete</li>
+            <li>To edit some input replace the fetched input with your desired input</li>
+            <li>Read toolkit for more details</li>
+          </ul>
+          <label for="bigheading">Conference Title:</label>
+          <div data-tip="Enter the name of the conference exactly as you want it  to be displayed "><input type="text tooltip" name="bigheading" value="<%= confer.title %>"/></div>
+          <label for="schedule">From date:</label>
+          <div data-tip="Enter the date in the format - 'Month DD,YYYY'  "><input type="text" name="formdate" placeholder="Month DD,YYYY" value="<%= confer.fromdate %>"/></div>
+          <label for="schedule">To date:</label>
+          <div data-tip="Enter the date in the format - 'Month DD,YYYY'  "><input type="text" name="todate" placeholder="Month DD,YYYY" value="<%= confer.todate %>"/></div>
+          <label for="big-heading">Venue:</label>
+          <div data-tip="Enter the venue exactly as you want it  to be displayed "><input type="text" name="venue" value="<%= confer.venue %>"/></div>
+          <label for="big-heading">Youtube link:</label>
+          <div data-tip="Enter the valid url link of the conference if available  "><input type="text" name="Link" value="<%= confer.url %>"/></div>
+          <p class="infoabo">
+            <label for="big-heading">Information About Conference:</label>
+          </p>
+          <div data-tip="Enter the information of the conference and please note that the first 1000 characters would be displayed in the main page. So enter accordingly!  "><textarea name="infocon" id="" cols="80" rows="4"><%= confer.info %></textarea></div>
+          <br />
+          <hr />
+        </div>
+        <div class="announceeg style2">
+          <% for(var i=0;i<confer.announce.length;i++){  %>
+          <div class="form20 partannounce<%= (i+1) %>">
+            <label for="announce1">Announcement:</label>
+            <div data-tip='Enter the announcements in the order that you want to be displayed '><input type="text" name="announce" value="<%= confer.announce[i] %>" /></div>
+            <hr />
+          </div>
+          <% } %>
+          <button class="delete-announce btn" onclick="deleteAnnounce()">
+            Delete Last Announcement
+          </button>
+          <button class="add-announce btn" onclick="addAnnounce()">
+            Add New Announcement
+          </button>
+        </div>
+        <div class="dayeg style1">
+          <% for(var i=0;i<confer.days.day.length;i++){  %>
+            <div class="form3 partday<%= (i+1) %>">
+              <label for="day1">Day no:</label>
+              <div data-tip='Enter the day number in the order that you want to be displayed '><input type="number" name="day" value="<%= confer.days.day[i] %>"/></div>
+              <label for="timing">Time:</label>
+              <div data-tip='Enter the time in  order and format for the day number entered before '><input type="text" name="time" value="<%= confer.days.time[i] %>"/></div>
+              <label for="event-name1">Event Name:</label>
+              <div data-tip='Enter the name of event corresponding to the time entered before '><input type="text" name="eventname" value="<%= confer.days.eventname[i] %>"/></div>
+              <label for="event-desc1">Event Description:</label>
+              <div data-tip='Enter the description of the event and please note that the first 30 characters would be displayed in the main page. So enter accordingly!'><textarea name="eventdesc" id="" cols="80" rows="4"><%= confer.days.eventdesc[i] %></textarea></div>
+              <label for="plink">Paper Link:</label>
+            <div data-tip='Enter the valid google drive link of the paper presenter corresponding to the event if available or else type NA '><input type="text" name="paperlink" value="<%= confer.days.paperlink[i] %>"></div>
+              <hr />
+            </div>
+          <% } %>
+          <button class="delete-day btn" onclick="deleteDay()">
+            Delete Last Day and schedule
+          </button>
+          <button class="add-day btn" onclick="addDay()">
+            Add New Day and schedule
+          </button>
+        </div>
+        <div class="speakereg style2">
+          <% for(var i=0;i<confer.speaker.length;i++){  %>
+          <div class='form4 partspeaker<%= (i+1) %>'>
+          <label for="speaker1">Speaker Photo:</label>
+          <input type="hidden" name="imgcount" value="<%= i %>">
+          <% if(confer.speaker[i]){ %>
+
+
+          <img
+
+                class="card-img-top"
+                src="data:image/<%=confer.speaker[i].img.contentType%>;base64,
+                <%=confer.speaker[i].img.data.toString('base64')%>"
+                alt="Card image cap"
+              />
+          <%}%>
+
+          <label for="speaker-name1">Speaker Name:</label>
+          <div data-tip='Enter the name of the corresponding speaker '><input type="text" name="speakername" value="<%= confer.speaker[i].speakername %>"/></div>
+          <label for="speaker-desc1">Speaker Description:</label>
+          <div data-tip='Enter the description of the corresponding speaker '><input type="text" name="speakerdesc" value="<%= confer.speaker[i].speakerdesc %>"/></div>
+          <hr />
+        </div>
+          <% } %>
+          <input type="hidden" name="speakimgcount" value="<%= confer.speaker.length %>">
+          <button class="delete-speaker btn" onclick="deleteSpeaker()">
+            Delete Last Speaker
+          </button>
+          <button class="add-speaker btn" onclick="addSpeaker()">
+            Add New Speaker
+          </button>
+        </div>
+        <div class="sponsoreg style1">
+          <% for(var i=0;i<confer.sponsor.length;i++){ %>
+            <div class='form5 partsponsor<%= (i+1) %>'>
+                <label for="sponsor1">Sponsor Photo:</label>
+                <input type="hidden" name="imgcounts" value="<%= i %>">
+                <% if(confer.sponsor){ %>
+                <img
+                class="card-img-top"
+                src="data:image/<%=confer.sponsor[i].img.contentType%>;base64,
+                <%=confer.sponsor[i].img.data.toString('base64')%>"
+                alt="Card image cap"
+              />
+              <%}%>
+
+          <label for="sponsor-name1">Sponsor Name:</label>
+          <div data-tip='Enter the name of the corresponding sponsor '><input type="text" name="sponsorname" value="<%= confer.sponsor[i].sponsorname %>"/>
+          </div>
+        </div>
+          <% } %>
+          <input type="hidden" name="sponimgcount" value="<%= confer.sponsor.length %>">
+          <button class="delete-sponsor btn" onclick="deleteSponsor()">
+            Delete Last Sponsor
+          </button>
+          <button class="add-sponsor btn" onclick="addSponsor()">
+            Add New Sponsor
+          </button>
+          <hr />
+        </div>
+        <div class="gallery_imgeg style2">
+          <% for(var i=0;i < confer.gallery.length;i++){ %>
+          <div class="form6 partgallery<%= (i+1) %>">
+            <input type="hidden" name="imgcountss" value="<%= i %>">
+            <label for="img_cap">Image Caption:</label><div data-tip='Enter the caption of the photo of the past conference if avilable in the order that you want to be displayed.'></div>
+            <input type="text" name="img_cap" value="<%= confer.gallery[i].caption %>" />
+            <label for="gallery_img" class="image"
+              >Photos of conference:
+            </label>
+            <img src="data:image/<%= confer.gallery[i].img.contentType %>;base64,
+            <%=confer.gallery[i].img.data.toString('base64')%>" alt="">
+            <input type="file" name="gallery_img" id="gallery_img" multiple />
+          </div>
+          <% } %>
+          <input type="hidden" name="galleryimgcount" value="<%= confer.gallery.length %>">
+          <button class="delete-sponsor btn" onclick="deletephotos()">
+            Delete Last Photo
+          </button>
+          <button class="add-sponsor btn" onclick="addphotos()">
+            Add New Photo
+          </button>
+        </div>
+        <div class="buttons">
+          <button type="submit" class="btn">Submit</button>
+          <button type="reset" class="btn">Reset</button>
+        </div>
+      </form>
+    </section>
+    <script src="/js/updateform.js"></script>
+  </body>
+</html>

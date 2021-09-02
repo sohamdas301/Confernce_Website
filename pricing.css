@@ -1,0 +1,91 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+}
+.container{
+    margin-top: 150px;
+    display: flex;
+    flex-direction: row ;
+    flex-wrap: wrap;
+    flex:1;
+    justify-content: center;
+    align-content: space-around;
+    gap:3rem;
+}
+.card{
+    box-shadow:  31px 31px 62px #dae2e3,
+             -31px -31px 62px #f6feff;
+    width: 300px;
+    text-align: center;
+    border-radius: 25px;
+    height: min-content;
+}
+.card:hover{
+    box-shadow:  -20px -20px 60px #cecece,
+             20px 20px 60px #f2f2f2;
+}
+li{
+    list-style: none;
+    border-bottom: 1px solid lightgray;
+    padding: 0.5rem;
+}
+.card-header{
+    font-size: 2rem;
+    border-radius: 25px 25px 0 0;
+    padding: 1rem;
+    color:#fff;
+}
+.card-title{
+    font-size: 3rem;
+    background-color: #fff;
+    border-bottom: 1px solid lightgoldenrodyellow;
+}
+.features{
+    font-size: 1.5rem;
+    padding: 0.8rem;
+}
+li>img{
+    margin-right: 1rem;
+}
+a{
+    display: block;
+    width:80%;
+    background-color: #fff;
+    border: 2px solid #F9B208;
+    border-radius: 20px;
+    color: #F9B208;
+    text-decoration: none;
+    margin: 1rem auto;
+    padding: 0.5rem;
+}
+a:hover{
+   display: block;
+    width:80%;
+    background-color:#F9B208;
+    border: none;
+    border-radius: 20px;
+    color: #fff;
+    text-decoration: none;
+    margin: 1rem auto;
+    padding: 0.5rem;
+}
+.attendees>.card-header{
+    background-color: #F9B208;
+}
+.attendees:hover{
+    border: 3px solid #F9B208;
+}
+.paper_presenter>.card-header{
+    background-color: #F98404;
+}
+.paper_presenter:hover{
+    border: 3px solid #F9B208;
+}
+.industry>.card-header{
+    background-color: #FC5404;
+}
+.industry:hover{
+    border: 3px solid #F9B208;
+}

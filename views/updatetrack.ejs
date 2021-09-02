@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script
+      src='https://code.jquery.com/jquery-3.2.1.slim.min.js'
+      integrity='sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN'
+      crossorigin='anonymous'
+    ></script>
+  <link rel="stylesheet" href="/css/form.css" />
+
+  <link rel="icon" type="image/png" href="https://vesit.ves.ac.in/logo.png" />
+
+
+  <title>Update tracks</title>
+</head>
+
+<body>
+  <form action="/tracks" class="form1" method="post">
+    <label for="bigheading">Conference Title:</label>
+    <input type="text" name="bigheading" value="<%= title %>" />
+    <div class="trackeg style1">
+      <h3>Read toolkit for more details</h3>
+          <ul>
+            <li>Note:  </li>
+            <li>Please enter the information exactly the way you want to display on website</li>
+            <li>To add same type of input just click on corresponding add button</li>
+            <li>To edit some input click on delete last button and start deleting fromlast till the one you want to delete</li>
+            <li>To edit some input replace the fetched input with your desired input</li>
+            <li></li>
+          </ul>
+      <% for(var i=0;i<track.trackno.length;i++){ %>
+        <div class="form3 parttrack<%= (i+1) %>">
+          <label for="track1">Track No:</label>
+          <div data-tip='Enter the track number in the order that you want to be displayed '><input type="number"
+              name="trackno" value="<%= track.trackno[i] %>" />
+          </div>
+
+
+          <label for="trackname">Track Name:</label>
+          <div
+            data-tip='Enter the name of track corresponding to the track number entered before .Please enter consistent track names throughout.'>
+            <input type="text" name="trackname" value="<%= track.trackname[i] %>" />
+          </div>
+
+
+          <label for="sessionname">Session Name:</label>
+          <div data-tip='Enter the name of session corresponding to the track entered before '><input type="text"
+              name="sessionname" value="<%= track.sessionname[i] %>" />
+          </div>
+
+
+          <hr />
+        </div>
+        <% } %>
+          <button class="delete-day btn" onclick="deleteTrack()">
+            Delete Last Track and Session
+          </button>
+          <button class="add-day btn" onclick="addTrack()">
+            Add New Track and Session
+          </button>
+    </div>
+    <div class="buttons">
+      <button type="submit" class="btn">Submit</button>
+      <button type="reset" class="btn">Reset</button>
+    </div>
+  </form>
+  <script src="/js/updatetracks.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

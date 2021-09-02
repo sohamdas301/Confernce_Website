@@ -1,0 +1,217 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Poppins", "Montserrat", "sans-serif";
+  height: auto;
+}
+
+form {
+  display: block;
+}
+
+.info {
+  display: block;
+  width: 90%;
+}
+.add-schedule,
+.delete-schedule {
+  position: relative;
+  float: right;
+  margin-right: 80px;
+}
+
+.infoabo {
+  vertical-align: middle;
+}
+
+.btn {
+  -webkit-border-radius: 19;
+  -moz-border-radius: 19;
+  border-radius: 19px;
+  font-family: Arial;
+  color: #000000;
+  font-size: 20px;
+  background: #f8c100;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+  margin: 20px;
+  border: none;
+}
+
+.btn:hover {
+  background: #f58013;
+  text-decoration: none;
+}
+
+.style1 {
+  background-color: #16697a;
+  color: #ffffff;
+  padding: 3rem 0;
+  margin: 0 auto 3rem;
+}
+
+.style1 div {
+  width: auto;
+}
+
+.style2 {
+  background-color: #ffa62b;
+  padding: 3rem 0;
+  margin: 0 auto 3rem;
+}
+
+.style2 .btn {
+  background: #444444;
+  color: #ffffff;
+}
+
+.style2 .btn:hover {
+  background: #000000;
+}
+
+img {
+  height: 100px;
+  width: auto;
+}
+
+/*tooltip*/
+[data-tip] {
+  position: relative;
+}
+[data-tip]:before {
+  content: "";
+  /* hides the tooltip when not hovered */
+  display: none;
+  content: "";
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid #1a1a1a;
+  position: absolute;
+  top: 30px;
+  left: 500px;
+  z-index: 8;
+  font-size: 0;
+  line-height: 0;
+  width: 0;
+  height: 0;
+}
+[data-tip]:after {
+  display: none;
+  content: attr(data-tip);
+  position: absolute;
+  top: 35px;
+  left: 400px;
+  padding: 5px 8px;
+  background: #1a1a1a;
+  color: #fff;
+  z-index: 9;
+  font-size: 0.75em;
+  height: auto;
+  width: 500px;
+  line-height: 18px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  white-space: wrap;
+  word-wrap: normal;
+}
+[data-tip]:hover:before,
+[data-tip]:hover:after {
+  display: inline-block;
+}
+/*tooltip*/
+
+h3 {
+  padding-top: 2rem;
+  width: fit-content;
+  margin: 4rem auto 1rem;
+}
+
+ul {
+  width: fit-content;
+  margin: 0 auto 3rem;
+}
+
+label {
+  font-size: 24px;
+  margin-left: 27rem;
+}
+
+input {
+  font-size: 18px;
+  background-repeat: repeat-x;
+  border: 0px solid;
+  height: 25px;
+  display: block;
+  margin: 10px 0 2rem 27rem;
+  width: 50%;
+  padding: 1rem 2rem;
+}
+
+textarea {
+  margin: 10px 0 2rem 27rem;
+  width: 50%;
+  padding: 1rem 2rem;
+}
+
+hr {
+  width: 75%;
+  margin: 3rem auto;
+  border-top: 3px solid;
+}
+
+.announceeg {
+  padding: 50px 0;
+}
+
+.card-img-top {
+  margin: 2rem 0 0 27rem;
+}
+
+.delete-announce,
+.delete-day {
+  margin-left: 30vw;
+}
+
+.delete-speaker,
+.delete-sponsor {
+  margin-left: 35vw;
+}
+
+.form6 img {
+  margin-left: 3rem;
+}
+
+.buttons {
+  background-color: #0a1931;
+  padding: 6rem 0;
+  display: flex;
+  justify-content: center;
+}
+
+.buttons button {
+  padding: 2rem 3rem;
+  font-size: 2rem;
+  color: #000000;
+}
+
+.form7,
+.form8,
+.form9,
+.form10,
+.form11,
+.form12,
+.form13,
+.form14,
+.form15,
+.form16,
+.form17,
+.form18,
+.form19 {
+  padding: 4rem 0;
+  border-bottom: 3px solid;
+}

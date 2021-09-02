@@ -1,0 +1,133 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+}
+.container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: #fef7dc;
+    padding: 2rem;
+}
+.left{
+    justify-content: center;
+    width: 45vw;
+    margin-left: 3rem;
+}
+.left h3{
+    text-align: center;
+    font-size: 2rem;
+}
+.left p{
+    text-align: center;
+    padding: 1rem;
+}
+.right{
+    width: 45vw;
+    display: flex;
+    align-content: center;
+}
+ .carousel-container {
+	 width: 400px;
+	 height: 250px;
+	 overflow: hidden;
+	 margin: 0 auto;
+}
+ .carousel {
+	 display: flex;
+	 width: 1200px;
+	 animation: sliding 12s infinite;
+}
+ .carousel div {
+	 width: 400px;
+	 height: 250px;
+	 background-size: cover;
+	 background-position: center;
+}
+ .carousel:hover {
+	 animation-play-state: paused;
+}
+ .carousel .image-one {
+	 background-image: url("https://images.static-collegedunia.com/public/college_data/images/appImage/15528_VESIT.jpg");
+}
+ .carousel .image-two {
+	 background-image: url("https://schoolbook.getmyuni.com/assets/images/rev_img/5212__1970/1431109154IMG-20130329-WA0006.jpg");
+}
+ .carousel .image-three {
+	 background-image: url("https://th.bing.com/th/id/R.a8d5c0fb3287cc073e0fffc07f182301?rik=8r2e6yPBIwkcBg&riu=http%3a%2f%2fvesittpc.ves.ac.in%2fuploadss%2f17866.jpg&ehk=IhpzwqOBFzERPISyJfKqOTKUZk21C9t9EiLikz4l0dw%3d&risl=&pid=ImgRaw");
+}
+ @keyframes sliding {
+	 30% {
+		 transform: translateX(0);
+	}
+	 35% {
+		 transform: translateX(-400px);
+	}
+	 65% {
+		 transform: translateX(-400px);
+	}
+	 70% {
+		 transform: translateX(-800px);
+	}
+	 98% {
+		 transform: translateX(-800px);
+	}
+	 100% {
+		 transform: translateX(0);
+	}
+}
+ @media screen and (max-width: 1200px) {
+     .left{
+         margin: auto 2rem;
+         width: auto;
+     }
+     .left p{
+         text-align:center;
+         padding: 1rem;
+         
+     }
+	 .right{
+         margin: auto;
+     }
+	 .carousel-container {
+		 width: 240px;
+		 height: 150px;
+	}
+	 .carousel {
+		 width: 720px;
+	}
+	 .carousel > div {
+		 width: 240px;
+		 height: 150px;
+	}
+	 @keyframes sliding {
+		 30% {
+			 transform: translateX(0);
+		}
+		 35% {
+			 transform: translateX(-240px);
+		}
+		 65% {
+			 transform: translateX(-240px);
+		}
+		 70% {
+			 transform: translateX(-480px);
+		}
+		 98% {
+			 transform: translateX(-480px);
+		}
+		 100% {
+			 transform: translateX(0);
+		}
+	}
+}
+.left a{
+    text-decoration: none;
+    color:darkcyan;
+    margin: auto;
+}
+ #fake,#fake2{
+     height: 200px;
+ }

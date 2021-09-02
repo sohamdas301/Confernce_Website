@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Archive</title>
+    <link rel="stylesheet" href="/css/archive.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat|Ubuntu"
+      rel="stylesheet"
+    />
+
+    <!-- CSS Stylesheets -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link rel="icon" type="image/png" href="https://vesit.ves.ac.in/logo.png" />
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
+    <script
+      defer
+      src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"
+    ></script>
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <section id="hero">
+      <div class="hero">
+        <%- include('partials/navbar') %>
+      </div>
+      <div class="table-container">
+        <h1 class="heading">Upcoming Conferences</h1>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Sr.no</th>
+              <th>Conference Name</th>
+              <th>Venue</th>
+              <th>Schedule</th>
+
+              <th>View</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% for(var i=0;i<arr2.length;i++) { %>
+            <tr>
+              <td data-label="Sr.no"><%= i+1 %></td>
+              <td data-label="arr2ference name"><%= arr2[i].title %></td>
+              <td data-label="Topic"><%= arr2[i].venue %></td>
+              <td data-label="Schedule"><%= arr2[i].fromdate %> - <%= arr2[i].todate %></td>
+              <td data-label="View"><a href="/aboutconference/<%= arr2[i]._id %>" class="btn">Visit</a></td>
+            </tr>
+            <% } %>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="table-container">
+        <h1 class="heading">Past Conferneces</h1>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Sr.no</th>
+              <th>Conference Name</th>
+              <th>Venue</th>
+              <th>Schedule</th>
+
+              <th>View</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% for(var i=0;i<arr1.length;i++) { %>
+            <tr>
+              <td data-label="Sr.no"><%= i+1 %></td>
+              <td data-label="arr1ference name"><%= arr1[i].title %></td>
+              <td data-label="Topic"><%= arr1[i].venue %></td>
+              <td data-label="Schedule"><%= arr1[i].fromdate %> - <%= arr1[i].todate %></td>
+              <td data-label="View"><a href="/aboutconference/<%= arr1[i]._id %>" class="btn">Visit</a></td>
+            </tr>
+            <% } %>
+          </tbody>
+        </table>
+      </div>
+
+
+    <%- include('partials/footer') %>
+    <script src="/js/script.js"></script>
+  </body>
+</html>
